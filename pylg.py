@@ -38,10 +38,9 @@ print(logo)
 print('\t\t\t\t\t\t\tScript',R+'by'+GR+'..'+G+'L'+B+'h'+T+'4'+P+'c'+C+'K'+O+'g'+G)
 print('ოპერაციული სისტემა')
 subprocess.call('cat /etc/issue',shell=True)
-#os.system('cat /etc/issue')
-#print("")
+
 #*************************************************************************#
-#                              function                                   #
+#                              script                                     #
 #*************************************************************************#
 
 # update system
@@ -72,8 +71,6 @@ class ControllPackage:
         print(' თანხმობა:','y, Y, yes, YES, კი')
         print(' უარყოფა:','n, N, no, NO, არა')
         
-  #AptUpd('[*] ბრძანება \033[22;31m>\033[22;32m ')
-
   def InstallPackage():
     os.system("clear")
     info = '''
@@ -470,7 +467,7 @@ class ControllPackage:
         sys.exit()
         break
       else:
-        print("\033[22;31m გაფრთხილება: ბრძანება არასწორია!\033[22;32m")
+        print(R+" გაფრთხილება: ბრძანება არასწორია!"+G)
 
 if __name__ == "__main__":
     ControllPackage.AptUpd('[*] ბრძანება \033[22;31m>\033[22;32m ')
