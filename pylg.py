@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 
+
 # text color
 R  = '\033[31m' # წითელი
 G  = '\033[32m' # მწვანე
@@ -40,7 +41,7 @@ print('ოპერაციული სისტემა')
 subprocess.call('cat /etc/issue',shell=True)
 
 #*************************************************************************#
-#                              script                                     #
+#                              Script                                     #
 #*************************************************************************#
 
 # update system
@@ -66,11 +67,11 @@ class ControllPackage:
         return True
       else:
         os.system("clear")
-        print("\033[22;31m გაფრთხილება: ბრძანება არასწორია!\033[22;32m")
+        print(R+" გაფრთხილება: ბრძანება არასწორია!"+G)
         print('[*] გთხოვთ გამოიყენოთ ქვემოთ მოცემული ბრძანებები: ')
         print(' თანხმობა:','y, Y, yes, YES, კი')
         print(' უარყოფა:','n, N, no, NO, არა')
-        
+
   def InstallPackage():
     os.system("clear")
     info = '''
@@ -200,11 +201,11 @@ class ControllPackage:
           inm = input(R+" დაყენება : "+G)
           if inm == 'i' or inm == 'install':
             print(P+"მიმდინარეობს Sip-4.13 ინსტალაცია "+G)
-            os.system("xterm -e sudo apt-get install libqt4-dev")
-            os.system("xterm -e wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.13.3/sip-4.13.3.tar.gz")
-            os.system("xterm -e tar xzvf sip-4.13.3.tar.gz")
-            os.system("xterm -e cd sip-4.13.3")
-            os.system("xterm -e sudo python configure.py")
+            os.system("sudo apt-get install libqt4-dev")
+            os.system("wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.13.3/sip-4.13.3.tar.gz")
+            os.system("tar xzvf sip-4.13.3.tar.gz")
+            os.chdir("/root/sip-4.13.3")
+            os.system("sudo python configure.py")
             os.system("sudo make")
             os.system("sudo make install")
             os.system("clear")
@@ -220,12 +221,12 @@ class ControllPackage:
           inm = input(R+" დაყენება : "+G)
           if inm == 'i' or inm == 'install':
             print(P+"მიმდინარეობს PyQt4 ინსტალაცია "+G)
-            os.system("xterm -e wget sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.9.4/PyQt-x11-gpl-4.9.4.tar.gz")
-            os.system("xterm -e tar xzvf PyQt-x11-gpl-4.9.4.tar.gz")
-            os.system("xterm -e cd PyQt-x11-gpl-4.9.4")
-            os.system("xterm -e sudo python configure.py")
-            os.system("xterm -e sudo make")
-            os.system("xterm -e sudo make install")
+            os.system("wget sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.9.4/PyQt-x11-gpl-4.9.4.tar.gz")
+            os.system("tar xzvf PyQt-x11-gpl-4.9.4.tar.gz")
+            os.chdir("/root/PyQt-x11-gpl-4.9.4")
+            os.system("sudo python configure.py")
+            os.system("sudo make")
+            os.system("sudo make install")
             os.system("clear")
             print(GR+" PyQt4 წარმატებით დაყენდა"+G)
             print(info)
@@ -283,7 +284,11 @@ class ControllPackage:
           inm = input(R+" დაყენება : "+G)
           if inm == 'i' or inm == 'install':
             print(P+"მიმდინარეობს Python 3.3.4 ინსტალაცია "+G)
-            os.system("xterm -e sudo apt-get install python")
+            os.system("wget http://python.org/ftp/python/3.3.4/Python-3.3.4.tgz && tar -xvf Python-3.3.4.tgz")
+            os.chdir("/root/Python-3.3.4")
+            os.system("./configure")
+            os.system("sudo make")
+            os.system("sudo make altinstall")
             os.system("clear")
             print(GR+" Python 3.3.4 წარმატებით დაყენდა"+G)
             print(info)
@@ -356,11 +361,11 @@ class ControllPackage:
           inm = input(R+" დაყენება : "+G)
           if inm == 'i' or inm == 'install':
             print(P+"მიმდინარეობს Sip-4.13 ინსტალაცია "+G)
-            os.system("xterm -e sudo apt-get install libqt4-dev")
-            os.system("xterm -e wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.13.3/sip-4.13.3.tar.gz")
-            os.system("xterm -e tar xzvf sip-4.13.3.tar.gz")
-            os.system("xterm -e cd sip-4.13.3")
-            os.system("xterm -e sudo python3 configure.py")
+            os.system("sudo apt-get install libqt4-dev")
+            os.system("wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.13.3/sip-4.13.3.tar.gz")
+            os.system("tar xzvf sip-4.13.3.tar.gz")
+            os.chdir("/root/sip-4.13.3")
+            os.system("sudo python3 configure.py")
             os.system("sudo make")
             os.system("sudo make install")
             os.system("clear")
@@ -376,12 +381,12 @@ class ControllPackage:
           inm = input(R+" დაყენება : "+G)
           if inm == 'i' or inm == 'install':
             print(P+"მიმდინარეობს PyQt4 ინსტალაცია "+G)
-            os.system("xterm -e wget sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.9.4/PyQt-x11-gpl-4.9.4.tar.gz")
-            os.system("xterm -e tar xzvf PyQt-x11-gpl-4.9.4.tar.gz")
-            os.system("xterm -e cd PyQt-x11-gpl-4.9.4")
-            os.system("xterm -e sudo python3 configure.py")
-            os.system("xterm -e sudo make")
-            os.system("xterm -e sudo make install")
+            os.system("wget sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.9.4/PyQt-x11-gpl-4.9.4.tar.gz")
+            os.system("tar xzvf PyQt-x11-gpl-4.9.4.tar.gz")
+            os.chdir("/root/PyQt-x11-gpl-4.9.4")
+            os.system("sudo python3 configure.py")
+            os.system("sudo make")
+            os.system("sudo make install")
             os.system("clear")
             print(GR+" PyQt4 წარმატებით დაყენდა"+G)
             print(info)
@@ -467,7 +472,7 @@ class ControllPackage:
         sys.exit()
         break
       else:
-        print(R+" გაფრთხილება: ბრძანება არასწორია!"+G)
+        print(R+"გაფრთხილება: ბრძანება არასწორია!"+G)
 
 if __name__ == "__main__":
     ControllPackage.AptUpd('[*] ბრძანება \033[22;31m>\033[22;32m ')
